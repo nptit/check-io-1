@@ -1,31 +1,23 @@
 def min(*args, **kwargs):
+    minimum = None
     key = kwargs.get("key", lambda x: x)
     if len(args) == 1:
-        minimum = args[0][0]
-        for x in args[0]:
-            if key(x) < key(minimum):
-                minimum = x
-    else:
-        minimum = args[0]
-        for x in args:
-            if key(x) < key(minimum):
-                minimum = x
+        args = args[0]
+    for x in args:
+        if minimum is None or key(x) < key(minimum):
+            minimum = x
 
     return minimum
 
 
 def max(*args, **kwargs):
+    maximum = None
     key = kwargs.get("key", lambda x: x)
     if len(args) == 1:
-        maximum = args[0][0]
-        for x in args[0]:
-            if key(x) > key(maximum):
-                maximum = x
-    else:
-        maximum = args[0]
-        for x in args:
-            if key(x) > key(maximum):
-                maximum = x
+        args = args[0]
+    for x in args:
+        if maximum is None or key(x) > key(maximum):
+            maximum = x
 
     return maximum
 
