@@ -1,14 +1,6 @@
-from datetime import datetime
+from datetime import date
 
-
-def days_diff(date1, date2):
-    """
-        Find absolute diff in days between dates
-    """
-    delta = \
-        datetime(year=date1[0], month=date1[1], day=date1[2]) - \
-        datetime(year=date2[0], month=date2[1], day=date2[2])
-    return abs(delta.days)
+days_diff = lambda x, y: abs((date(*x) - date(*y)).days)
 
 if __name__ == '__main__':
     # These "asserts" using only for self-checking and not necessary for auto-testing
